@@ -1,3 +1,5 @@
+package model;
+
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -5,20 +7,11 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/**
- *
- * @author CallMeWhy
- *
- */
+
 public class Spider {
+
     private static HttpClient httpClient = new HttpClient();
-    /**
-     * @param path
-     *            目标网页的链接
-     * @return 返回布尔值，表示是否正常下载目标页面
-     * @throws Exception
-     *             读取网页流或写入本地文件流的IO异常
-     */
+
     public static boolean downloadPage(String path) throws Exception {
         // 定义输入输出流
         InputStream input = null;
@@ -53,10 +46,12 @@ public class Spider {
         }
         return false;
     }
+
+
     public static void main(String[] args) {
         try {
             // 抓取百度首页，输出
-            Spider.downloadPage("http://www.baidu.com");
+            Spider.downloadPage("https://www.baidu.com");
         } catch (Exception e) {
             e.printStackTrace();
         }
